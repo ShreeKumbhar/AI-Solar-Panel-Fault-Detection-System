@@ -1,0 +1,4 @@
+package com.example.solarfarm.domain;
+
+import jakarta.persistence.*; import java.time.Instant; import com.example.solarfarm.domain.Enums.Role;
+@Entity @Table(name="users") public class User { @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id; @Column(nullable=false,unique=true) private String email; @Column(name="password_hash",nullable=false) private String passwordHash; @Enumerated(EnumType.STRING) @Column(nullable=false) private Role role; @Column(name="created_at",nullable=false) private Instant createdAt=Instant.now(); @Column(name="updated_at",nullable=false) private Instant updatedAt=Instant.now(); protected User(){} public User(String e,String p,Role r){email=e;passwordHash=p;role=r;} public Long getId(){return id;} public String getEmail(){return email;} public String getPasswordHash(){return passwordHash;} public Role getRole(){return role;} }

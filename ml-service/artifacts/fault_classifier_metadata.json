@@ -1,0 +1,201 @@
+{
+  "model_name": "xgboost",
+  "model_version": "phase5-fault-classifier-v1",
+  "algorithm": "XGBClassifier",
+  "training_date_utc": "2026-09-30T08:54:25.061741+00:00",
+  "python_version": "3.11.15",
+  "sklearn_version": "1.5.2",
+  "random_state": 42,
+  "class_mapping": {
+    "0": "NORMAL",
+    "1": "SHORT_CIRCUIT",
+    "2": "DEGRADATION",
+    "3": "OPEN_CIRCUIT",
+    "4": "SHADING"
+  },
+  "feature_list": [
+    "vdc1",
+    "vdc2",
+    "idc1",
+    "idc2",
+    "irradiance",
+    "pv_temperature",
+    "actual_power_w",
+    "expected_power_w",
+    "residual_w",
+    "absolute_error_w",
+    "deviation_percent",
+    "rolling_mean_residual",
+    "rolling_std_residual",
+    "rolling_mean_absolute_error",
+    "rolling_mean_deviation",
+    "previous_residual",
+    "previous_deviation",
+    "deviation_trend",
+    "anomaly_score",
+    "anomaly"
+  ],
+  "hyperparameters": {
+    "objective": "multi:softprob",
+    "base_score": null,
+    "booster": null,
+    "callbacks": null,
+    "colsample_bylevel": null,
+    "colsample_bynode": null,
+    "colsample_bytree": 0.9,
+    "device": null,
+    "early_stopping_rounds": null,
+    "enable_categorical": false,
+    "eval_metric": "mlogloss",
+    "feature_types": null,
+    "gamma": null,
+    "grow_policy": null,
+    "importance_type": null,
+    "interaction_constraints": null,
+    "learning_rate": 0.08,
+    "max_bin": null,
+    "max_cat_threshold": null,
+    "max_cat_to_onehot": null,
+    "max_delta_step": null,
+    "max_depth": 8,
+    "max_leaves": null,
+    "min_child_weight": null,
+    "missing": null,
+    "monotone_constraints": null,
+    "multi_strategy": null,
+    "n_estimators": 300,
+    "n_jobs": -1,
+    "num_parallel_tree": null,
+    "random_state": 42,
+    "reg_alpha": null,
+    "reg_lambda": null,
+    "sampling_method": null,
+    "scale_pos_weight": null,
+    "subsample": 0.9,
+    "tree_method": "hist",
+    "validate_parameters": null,
+    "verbosity": null,
+    "num_class": 5
+  },
+  "validation_metrics": {
+    "accuracy": 0.9439122628233124,
+    "precision_macro": 0.5839424586515367,
+    "recall_macro": 0.5797078750090013,
+    "f1_macro": 0.4830412833048296,
+    "f1_weighted": 0.9337755277144251,
+    "classification_report": {
+      "NORMAL": {
+        "precision": 0.9918177055433574,
+        "recall": 0.9836418726027637,
+        "f1-score": 0.9877128704165079,
+        "support": 171291.0
+      },
+      "SHORT_CIRCUIT": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 3638.0
+      },
+      "DEGRADATION": {
+        "precision": 0.3681519357195033,
+        "recall": 0.9727047146401985,
+        "f1-score": 0.5341408024224072,
+        "support": 3627.0
+      },
+      "OPEN_CIRCUIT": {
+        "precision": 0.7142857142857143,
+        "recall": 0.0013854253255749516,
+        "f1-score": 0.0027654867256637168,
+        "support": 3609.0
+      },
+      "SHADING": {
+        "precision": 0.8454569377091087,
+        "recall": 0.9408073624764693,
+        "f1-score": 0.8905872569595692,
+        "support": 23905.0
+      },
+      "accuracy": 0.9439122628233124,
+      "macro avg": {
+        "precision": 0.5839424586515367,
+        "recall": 0.5797078750090013,
+        "f1-score": 0.4830412833048296,
+        "support": 206070.0
+      },
+      "weighted avg": {
+        "precision": 0.9414919149312139,
+        "recall": 0.9439122628233124,
+        "f1-score": 0.9337755277144251,
+        "support": 206070.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        168489,
+        0,
+        4,
+        0,
+        2798
+      ],
+      [
+        6,
+        0,
+        3609,
+        0,
+        23
+      ],
+      [
+        10,
+        0,
+        3528,
+        2,
+        87
+      ],
+      [
+        0,
+        0,
+        2401,
+        5,
+        1203
+      ],
+      [
+        1374,
+        0,
+        41,
+        0,
+        22490
+      ]
+    ],
+    "labels": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "class_names": [
+      "NORMAL",
+      "SHORT_CIRCUIT",
+      "DEGRADATION",
+      "OPEN_CIRCUIT",
+      "SHADING"
+    ]
+  },
+  "confidence_threshold": 0.956291,
+  "confidence_threshold_method": "Validation utility score over quantile candidates; anomaly rows require known-class correctness and low-confidence anomaly rows become UNKNOWN_ANOMALY.",
+  "dataset_information": {
+    "train_count": 961659,
+    "validation_count": 206070,
+    "test_count": 206069,
+    "train_classes": [
+      0,
+      2,
+      3,
+      4
+    ],
+    "missing_training_classes": [
+      1
+    ]
+  },
+  "retrained_on_train_plus_validation": true,
+  "artifact": "artifacts/fault_classifier.joblib"
+}

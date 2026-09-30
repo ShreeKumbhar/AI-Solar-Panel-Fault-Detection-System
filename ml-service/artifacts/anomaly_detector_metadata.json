@@ -1,0 +1,60 @@
+{
+  "model_name": "IsolationForest",
+  "model_version": "phase4-isolation-forest-v1",
+  "algorithm": "sklearn.ensemble.IsolationForest",
+  "sklearn_version": "1.5.2",
+  "python_version": "3.11.15",
+  "training_date_utc": "2026-09-30T08:31:25.783306+00:00",
+  "random_state": 42,
+  "n_estimators": 200,
+  "features": [
+    "residual_w",
+    "absolute_error_w",
+    "deviation_percent",
+    "rolling_mean_residual",
+    "rolling_std_residual",
+    "rolling_mean_absolute_error",
+    "rolling_mean_deviation",
+    "previous_residual",
+    "previous_deviation",
+    "deviation_trend",
+    "irradiance",
+    "pv_temperature"
+  ],
+  "power_model_features": [
+    "vdc1",
+    "vdc2",
+    "idc1",
+    "idc2",
+    "irradiance",
+    "pv_temperature"
+  ],
+  "threshold": 0.2504888342576342,
+  "baseline_threshold": 0.6473517116994233,
+  "selected_detector": "isolation_forest",
+  "threshold_calibration_method": "Validation F1 maximization with validation recall tie-breaker.",
+  "raw_score_definition": "IsolationForest.score_samples; higher values indicate more normal observations.",
+  "normalized_score_definition": "Min-max normalized negative raw Isolation Forest score using training-score bounds; higher means more anomalous.",
+  "rolling_window": 10,
+  "training_split": "70% chronological Phase 2 train partition",
+  "validation_split": "15% chronological Phase 2 validation partition",
+  "test_split": "15% chronological Phase 2 test partition",
+  "partition_counts": {
+    "train": 961659,
+    "validation": 206070,
+    "test": 206069
+  },
+  "fault_labels_used_only_for": [
+    "validation threshold calibration",
+    "evaluation"
+  ],
+  "dataset_version": "pv_fault_dataset-public-phase1",
+  "fault_label_mapping": {
+    "0": "Normal",
+    "1": "Short-Circuit",
+    "2": "Degradation",
+    "3": "Open-Circuit",
+    "4": "Shadowing"
+  },
+  "artifact": "artifacts/anomaly_detector.joblib"
+}

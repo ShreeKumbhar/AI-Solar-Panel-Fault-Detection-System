@@ -1,0 +1,19 @@
+{
+  "target": "actual_power_w",
+  "features": [
+    "vdc1",
+    "vdc2",
+    "idc1",
+    "idc2",
+    "irradiance",
+    "pv_temperature"
+  ],
+  "feature_order": [
+    "vdc1",
+    "vdc2",
+    "idc1",
+    "idc2",
+    "irradiance",
+    "pv_temperature"
+  ]
+}

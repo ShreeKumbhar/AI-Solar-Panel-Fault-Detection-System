@@ -1,0 +1,3 @@
+package com.example.solarfarm.controller;
+import com.example.solarfarm.common.Dtos; import com.example.solarfarm.repository.FaultEventRepository; import org.springframework.web.bind.annotation.*; import java.util.*;
+@RestController @RequestMapping("/api/v1/panels") public class PanelFaultEventController { private final FaultEventRepository repo; public PanelFaultEventController(FaultEventRepository r){repo=r;} @GetMapping("/{panelId}/fault-events") public List<Dtos.FaultEventResponse> panel(@PathVariable String panelId){return repo.findByPanel_PanelIdOrderByStartTimeDesc(panelId).stream().map(e->new Dtos.FaultEventResponse(e.getEventId(),e.getPanel().getPanelId(),e.getStartTime(),e.getEndTime(),e.getFaultType(),e.getSeverity(),e.getStatus().name())).toList();} }

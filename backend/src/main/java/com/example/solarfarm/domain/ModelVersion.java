@@ -1,0 +1,3 @@
+package com.example.solarfarm.domain;
+import jakarta.persistence.*; import java.time.Instant;
+@Entity @Table(name="model_versions") public class ModelVersion { @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id; @Column(name="model_name",nullable=false) private String modelName; @Column(name="model_version",nullable=false,unique=true) private String modelVersion; private String description; @Column(name="created_at",nullable=false) private Instant createdAt=Instant.now(); @Column(nullable=false) private boolean active=true; protected ModelVersion(){} public ModelVersion(String n,String v,String d){modelName=n;modelVersion=v;description=d;} public String getModelVersion(){return modelVersion;} public String getDescription(){return description;} }

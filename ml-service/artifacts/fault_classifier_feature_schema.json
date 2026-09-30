@@ -1,0 +1,154 @@
+{
+  "target": "fault_label",
+  "features": [
+    "vdc1",
+    "vdc2",
+    "idc1",
+    "idc2",
+    "irradiance",
+    "pv_temperature",
+    "actual_power_w",
+    "expected_power_w",
+    "residual_w",
+    "absolute_error_w",
+    "deviation_percent",
+    "rolling_mean_residual",
+    "rolling_std_residual",
+    "rolling_mean_absolute_error",
+    "rolling_mean_deviation",
+    "previous_residual",
+    "previous_deviation",
+    "deviation_trend",
+    "anomaly_score",
+    "anomaly"
+  ],
+  "class_mapping": {
+    "0": "NORMAL",
+    "1": "SHORT_CIRCUIT",
+    "2": "DEGRADATION",
+    "3": "OPEN_CIRCUIT",
+    "4": "SHADING"
+  },
+  "feature_details": {
+    "vdc1": {
+      "dtype": "float64",
+      "source": "Phase 1 electrical measurement",
+      "description": "String 1 DC voltage",
+      "inference_available": true
+    },
+    "vdc2": {
+      "dtype": "float64",
+      "source": "Phase 1 electrical measurement",
+      "description": "String 2 DC voltage",
+      "inference_available": true
+    },
+    "idc1": {
+      "dtype": "float64",
+      "source": "Phase 1 electrical measurement",
+      "description": "String 1 DC current",
+      "inference_available": true
+    },
+    "idc2": {
+      "dtype": "float64",
+      "source": "Phase 1 electrical measurement",
+      "description": "String 2 DC current",
+      "inference_available": true
+    },
+    "irradiance": {
+      "dtype": "float64",
+      "source": "Phase 1 ambient measurement",
+      "description": "Solar irradiance",
+      "inference_available": true
+    },
+    "pv_temperature": {
+      "dtype": "float64",
+      "source": "Phase 1 ambient measurement",
+      "description": "PV module temperature",
+      "inference_available": true
+    },
+    "actual_power_w": {
+      "dtype": "float64",
+      "source": "Phase 1 calculated measurement",
+      "description": "Measured string power total",
+      "inference_available": true
+    },
+    "expected_power_w": {
+      "dtype": "float64",
+      "source": "Phase 3 expected-power model",
+      "description": "Expected healthy power",
+      "inference_available": true
+    },
+    "residual_w": {
+      "dtype": "float64",
+      "source": "Phase 4 residual calculation",
+      "description": "Actual minus expected power",
+      "inference_available": true
+    },
+    "absolute_error_w": {
+      "dtype": "float64",
+      "source": "Phase 4 residual calculation",
+      "description": "Absolute power residual",
+      "inference_available": true
+    },
+    "deviation_percent": {
+      "dtype": "float64",
+      "source": "Phase 4 residual calculation",
+      "description": "Power deviation percentage",
+      "inference_available": true
+    },
+    "rolling_mean_residual": {
+      "dtype": "float64",
+      "source": "Phase 4 causal history",
+      "description": "Trailing residual mean",
+      "inference_available": true
+    },
+    "rolling_std_residual": {
+      "dtype": "float64",
+      "source": "Phase 4 causal history",
+      "description": "Trailing residual standard deviation",
+      "inference_available": true
+    },
+    "rolling_mean_absolute_error": {
+      "dtype": "float64",
+      "source": "Phase 4 causal history",
+      "description": "Trailing absolute-error mean",
+      "inference_available": true
+    },
+    "rolling_mean_deviation": {
+      "dtype": "float64",
+      "source": "Phase 4 causal history",
+      "description": "Trailing deviation mean",
+      "inference_available": true
+    },
+    "previous_residual": {
+      "dtype": "float64",
+      "source": "Phase 4 causal history",
+      "description": "Previous residual",
+      "inference_available": true
+    },
+    "previous_deviation": {
+      "dtype": "float64",
+      "source": "Phase 4 causal history",
+      "description": "Previous deviation",
+      "inference_available": true
+    },
+    "deviation_trend": {
+      "dtype": "float64",
+      "source": "Phase 4 causal history",
+      "description": "Trailing deviation trend",
+      "inference_available": true
+    },
+    "anomaly_score": {
+      "dtype": "float64",
+      "source": "Phase 4 anomaly detector",
+      "description": "Normalized anomaly score",
+      "inference_available": true
+    },
+    "anomaly": {
+      "dtype": "bool",
+      "source": "Phase 4 anomaly detector",
+      "description": "Binary anomaly decision",
+      "inference_available": true
+    }
+  }
+}

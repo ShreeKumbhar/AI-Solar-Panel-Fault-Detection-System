@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: solar-farm-backend
+  datasource:
+    url: ${DATABASE_URL:url}
+    username: ${DATABASE_USERNAME:name}
+    password: ${DATABASE_PASSWORD:password}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+server:
+  port: ${SERVER_PORT:8080}
+ml:
+  service:
+    base-url: ${ML_SERVICE_URL:http://127.0.0.1:8000}
+    timeout-ms: ${ML_SERVICE_TIMEOUT_MS:5000}
+jwt:
+  secret: ${JWT_SECRET:change-this-development-secret-to-at-least-32-characters}
+  expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+app:
+  seed-virtual-farm: ${SEED_VIRTUAL_FARM:false}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

@@ -1,0 +1,3 @@
+package com.example.solarfarm.controller;
+import com.example.solarfarm.common.Dtos; import com.example.solarfarm.service.TelemetryService; import jakarta.validation.Valid; import org.springframework.web.bind.annotation.*; import java.util.*;
+@RestController @RequestMapping("/api/v1/telemetry") public class TelemetryController { private final TelemetryService service; public TelemetryController(TelemetryService s){service=s;} @PostMapping public Dtos.TelemetryResponse ingest(@Valid @RequestBody Dtos.TelemetryRequest request){return service.ingest(request);} @PostMapping("/batch") public List<Dtos.TelemetryResponse> batch(@Valid @RequestBody List<Dtos.TelemetryRequest> requests){return requests.stream().map(service::ingest).toList();} }

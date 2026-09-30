@@ -1,0 +1,22 @@
+# Python
+.__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment
+.env
+
+# Project data
+ml-service/data/raw/
+ml-service/data/processed/
+ml-service/data/reports/
+
+# OS/editor
+.DS_Store

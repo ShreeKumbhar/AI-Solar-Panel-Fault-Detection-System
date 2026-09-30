@@ -1,0 +1,3 @@
+package com.example.solarfarm.controller;
+import com.example.solarfarm.common.Dtos; import com.example.solarfarm.domain.Enums.PanelStatus; import com.example.solarfarm.service.PanelService; import org.springframework.web.bind.annotation.*; import java.util.*;
+@RestController @RequestMapping("/api/v1/panels") public class PanelController { private final PanelService service; public PanelController(PanelService s){service=s;} @GetMapping public List<Dtos.PanelResponse> all(@RequestParam(required=false) PanelStatus status){return service.all(status);} @GetMapping("/{panelId}") public Dtos.PanelResponse one(@PathVariable String panelId){return service.map(service.find(panelId));} }

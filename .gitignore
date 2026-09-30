@@ -1,0 +1,101 @@
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.secret
+secrets/
+credentials/
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# =========================
+# Python generated files
+# =========================
+*.log
+
+# =========================
+# Java / Maven
+# =========================
+backend/target/
+*.class
+
+# =========================
+# Node / React
+# =========================
+node_modules/
+dist/
+build/
+.npm/
+*.tsbuildinfo
+
+# =========================
+# IDE
+# =========================
+.idea/
+.vscode/
+*.iml
+
+# =========================
+# macOS
+# =========================
+.DS_Store
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# =========================
+# Local databases / dumps
+# =========================
+*.db
+*.sqlite
+*.sqlite3
+*.sql.gz
+
+# =========================
+# Large generated ML/data files
+# =========================
+# Uncomment these if you DON'T want large datasets/artifacts in Git:
+# ml-service/data/raw/
+# ml-service/data/processed/
+# ml-service/artifacts/*.joblib
+
+# =========================
+# Local runtime files
+# =========================
+logs/
+tmp/
+
+cat >> .gitignore <<'EOF'
+
+# ML datasets - generated locally
+ml-service/data/raw/
+ml-service/data/processed/
+
+# ML evaluation reports - generated locally
+ml-service/data/reports/
+
+# Large generated model/data files
+*.joblib
+EOF
